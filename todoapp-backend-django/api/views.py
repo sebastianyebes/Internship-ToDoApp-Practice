@@ -4,6 +4,7 @@ from .models import Task
 from .serializers import TasksSerializer
 from rest_framework.response import Response
 from rest_framework import status
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 
@@ -21,3 +22,10 @@ class TaskView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class TaskDetailView(APIView):
+    @staticmethod
+    def get(request, task_id):
+        task = get_object_or_404(Task, pk=task_id)
+        serializer = TasksSerializer(task)
+        return Response(serializer.data, status=status.HTTP_200_OK)
