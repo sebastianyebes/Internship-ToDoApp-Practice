@@ -1,4 +1,6 @@
+import { Provider } from 'react-redux'
 import './globals.css'
+import { ReduxProvider } from './redux/provider'
 
 export const metadata = {
   title: 'Todo App',
@@ -9,7 +11,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-          {children}
+          <ReduxProvider>{children}</ReduxProvider>
       </body>
     </html>
   )
