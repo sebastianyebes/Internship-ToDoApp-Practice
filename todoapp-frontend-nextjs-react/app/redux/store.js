@@ -7,5 +7,8 @@ export default configureStore({
     counter: counterReducer,
     tasks: taskReducer,
   },
-  middleware: [...getDefaultMiddleware()],
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });

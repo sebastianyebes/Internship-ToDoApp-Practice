@@ -32,7 +32,7 @@ export const fetchTask = createAsyncThunk("tasks/fetchTask", async (id) => {
   }
 });
 
-export const createTask = createAsyncThunk("tasks/createTask", async (data) => {
+export const AddTask = createAsyncThunk("tasks/createTask", async (data) => {
   try {
     const response = await createTask(data);
     return response;
@@ -69,7 +69,7 @@ const taskSlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       })
-      .addCase(createTask.fulfilled, (state, action) => {
+      .addCase(AddTask.fulfilled, (state, action) => {
         state.tasks.push(action.payload);
       });
   },
