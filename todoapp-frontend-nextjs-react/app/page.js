@@ -1,7 +1,7 @@
 "use client";
 import "./page.css";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchTask, fetchTasks, AddTask } from "./redux/features/task-slice";
+import { fetchTasks, AddTask } from "./redux/features/task-slice";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -29,7 +29,7 @@ export default function Home() {
       </div>
       <div className="page-tasks">
         <ul>
-          {tasks.tasks.map((task) => (
+          {tasks?.tasks.map((task) => (
             <li key={task.id}> {task.todo}</li>
           ))}
         </ul>
