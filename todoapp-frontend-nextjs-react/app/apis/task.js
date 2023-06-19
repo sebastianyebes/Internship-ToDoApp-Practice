@@ -16,7 +16,7 @@ export const getTask = async (id) => {
 
 export const getTasks = async () => {
   return await axios
-    .get(`${baseUrl}api/tasks`)
+    .get(`${baseUrl}api/tasks/`)
     .then((response) => {
       return response.data;
     })
@@ -28,7 +28,7 @@ export const getTasks = async () => {
 
 export const createTask = async (data) => {
   return await axios
-    .post(`${baseUrl}api/tasks`, data)
+    .post(`${baseUrl}api/tasks/`, data)
     .then((response) => {
       return response.data;
     })

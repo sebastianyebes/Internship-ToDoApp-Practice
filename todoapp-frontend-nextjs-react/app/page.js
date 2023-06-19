@@ -1,18 +1,27 @@
 "use client";
 import "./page.css";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchTask, fetchTasks, createTask } from "./redux/features/task-slice";
-import { useEffect } from "react";
+import { fetchTask, fetchTasks, AddTask } from "./redux/features/task-slice";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const distpatch = useDispatch();
   const tasks = useSelector((state) => state.tasks);
+  let [input, setInput] = useState("");
 
   useEffect(() => {
     distpatch(fetchTasks());
   }, []);
 
-  const handleTaskCreate = (e) => {};
+  const inputHandler = (e) => {
+    setInput(e.target.value);
+  };
+
+  const createTaskHandler = (e) => {
+    distpatch(AddTask({ todo: input }));
+    setInput("");
+  };
+
   return (
     <>
       <div className="page-title">
@@ -26,14 +35,12 @@ export default function Home() {
         </ul>
       </div>
       <div className="page-forms">
-        <form action="">
-          <label htmlFor="task">Input: </label>
-          <input type="text" />
-          <br />
-          <button onClick={handleTaskCreate} className="page-submit-button">
-            submit
-          </button>
-        </form>
+        <label htmlFor="task">Input: </label>
+        <input type="text" value={input} onChange={inputHandler} />
+        <br />
+        <button className="page-submit-button" onClick={createTaskHandler}>
+          submit
+        </button>
       </div>
     </>
   );
