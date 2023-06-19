@@ -24,3 +24,14 @@ export const getTasks = async () => {
         return error;
     });
 }
+
+export const createTask = async (data) => {
+    return await axios.post(`${baseUrl}api/tasks/`, data)
+    .then(response => {
+        return response.data;
+    })
+    .catch(error => {
+        console.log(error);
+        return error;
+    });
+}
