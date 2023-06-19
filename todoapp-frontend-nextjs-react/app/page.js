@@ -1,27 +1,18 @@
 "use client";
 import "./page.css";
 import { useSelector, useDispatch } from "react-redux";
-import { increment, decrement } from "./redux/features/count-slice";
-import { getTasks, getTask, createTask } from "./apis/task";
+import { fetchTask, fetchTasks, createTask } from "./redux/features/task-slice";
 import { useEffect } from "react";
 
 export default function Home() {
-  const count = useSelector((state) => state.counter);
   const distpatch = useDispatch();
-
-  function add() {
-    distpatch(increment(count));
-  }
-  function minus() {
-    distpatch(decrement(count));
-  }
+  const tasks = useSelector((state) => state.tasks);
 
   useEffect(() => {
-    getTask(4).then((data) => {
-      console.log(data);
-    });
+    distpatch(fetchTasks());
   }, []);
 
+  const handleTaskCreate = (e) => {};
   return (
     <>
       <div className="page-title">
@@ -29,18 +20,19 @@ export default function Home() {
       </div>
       <div className="page-tasks">
         <ul>
-          <li>{count}</li>
-          <li>tasks</li>
+          {tasks.tasks.map((task) => (
+            <li key={task.id}> {task.todo}</li>
+          ))}
         </ul>
       </div>
-      <button onClick={add}>add</button>
-      <button onClick={minus}>decrement</button>
       <div className="page-forms">
         <form action="">
           <label htmlFor="task">Input: </label>
           <input type="text" />
           <br />
-          <input type="submit" value="Submit" className="page-submit-button" />
+          <button onClick={handleTaskCreate} className="page-submit-button">
+            submit
+          </button>
         </form>
       </div>
     </>
