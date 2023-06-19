@@ -13,3 +13,14 @@ export const getTask = async (id) => {
       return error;
     });
 };
+
+export const getTasks = async () => {
+    return await axios.get(`${baseUrl}api/tasks/`)
+    .then(response => {
+        return response.data;
+    })
+    .catch(error => {
+        console.log(error);
+        return error;
+    });
+}
