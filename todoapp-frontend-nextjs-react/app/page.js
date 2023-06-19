@@ -2,6 +2,8 @@
 import "./page.css";
 import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement } from "./redux/features/count-slice";
+import { getTasks, getTask, createTask } from "./apis/task";
+import { useEffect } from "react";
 
 export default function Home() {
   const count = useSelector((state) => state.counter);
@@ -13,6 +15,12 @@ export default function Home() {
   function minus() {
     distpatch(decrement(count));
   }
+
+  useEffect(() => {
+    getTask(4).then((data) => {
+      console.log(data);
+    });
+  }, []);
 
   return (
     <>
