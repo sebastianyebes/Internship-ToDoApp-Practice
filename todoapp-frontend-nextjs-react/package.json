@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@plasmicapp/loader-nextjs": "^1.0.291",
     "@reduxjs/toolkit": "^1.9.5",
     "axios": "^1.4.0",
     "debug": "^4.3.4",
