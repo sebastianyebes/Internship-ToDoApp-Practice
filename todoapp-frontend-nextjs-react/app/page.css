@@ -1,17 +1,29 @@
-.page-title{
+.page-title {
   margin-top: 4rem;
 }
 
-.page-tasks{
+.page-tasks {
   margin-top: 2rem;
 }
 
-.page-forms{
+.page-task {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.page-forms {
   margin-top: 2rem;
 }
 
-.page-submit-button{
+.page-submit-button {
   margin-top: 1rem;
   width: 5%;
+  color: black;
+}
+
+.task-button {
+  width: 4%;
   color: black;
 }
