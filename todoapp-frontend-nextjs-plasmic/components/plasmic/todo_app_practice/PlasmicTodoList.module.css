@@ -48,58 +48,34 @@
 .addButton:global(.__wab_instance):global(.__wab_instance) {
   margin-left: 0;
 }
-.taskContainer {
+.taskList {
   display: flex;
   position: relative;
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: flex-start;
-  width: 472px;
+  flex-direction: column;
+  width: 100%;
   height: auto;
   max-width: 100%;
   margin-top: 47px;
   margin-left: 8px;
   margin-right: 0px;
-  justify-self: flex-start;
-  flex-grow: 0;
-  flex-shrink: 1;
-  overflow: hidden;
-  border-radius: 5px;
-  padding: 8px 0px;
-  border: 2px solid #ffffff;
+  min-width: 0;
+  padding: 8px;
 }
-.text {
-  width: 351px;
-  height: auto;
-  max-width: 100%;
-  text-align: left;
-  color: #fdfdfd;
-  padding-left: 0px;
-  margin-left: 15px;
-  margin-right: 0px;
-  flex-shrink: 0;
+.taskList > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-top: calc(0px - var(--token-UEz8jpx4ZeEk));
+  height: calc(100% + var(--token-UEz8jpx4ZeEk));
 }
-.deleteButton:global(.__wab_instance) {
-  max-width: 100%;
-  position: relative;
-  height: 23px;
-  width: 87px;
-  transition-property: all;
-  transition-duration: 1s;
-  margin-left: 0px;
-  flex-shrink: 0;
-  -webkit-transition-property: all;
-  -webkit-transition-duration: 1s;
-}
-.svg__bnusU {
-  position: relative;
-  object-fit: cover;
-  width: 1em;
-  height: 1em;
-}
-.svg__pPVz3 {
-  position: relative;
-  object-fit: cover;
-  width: 1em;
-  height: 1em;
+.taskList > :global(.__wab_flex-container) > *,
+.taskList > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.taskList > :global(.__wab_flex-container) > picture > img,
+.taskList
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: var(--token-UEz8jpx4ZeEk);
 }

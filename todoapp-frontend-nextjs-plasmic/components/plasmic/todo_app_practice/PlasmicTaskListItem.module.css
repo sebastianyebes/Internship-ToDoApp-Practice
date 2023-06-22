@@ -1,0 +1,57 @@
+.taskListItem {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 472px;
+  height: auto;
+  max-width: 100%;
+  justify-self: flex-start;
+  flex-grow: 0;
+  flex-shrink: 1;
+  overflow: hidden;
+  position: relative;
+  background: #000000;
+  border-radius: 5px;
+  padding: 8px 0px;
+  border: 2px solid #ffffff;
+}
+.taskText {
+  width: 351px;
+  height: auto;
+  max-width: 100%;
+  padding-left: 0px;
+  margin-left: 15px;
+  margin-right: 0px;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+}
+.slotTargetTask {
+  color: #fdfdfd;
+  text-align: left;
+}
+.deleteButton:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  height: 23px;
+  width: 87px;
+  transition-property: all;
+  transition-duration: 1s;
+  margin-left: 0px;
+  flex-shrink: 0;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 1s;
+}
+.svg___902Ni {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.svg__uA0Hs {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}

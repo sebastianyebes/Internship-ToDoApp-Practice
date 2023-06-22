@@ -19,7 +19,7 @@ import {
 } from "@plasmicapp/react-web";
 import TextInput from "../../TextInput"; // plasmic-import: kXiqqwWiZ1v/component
 import Button2 from "../../Button2"; // plasmic-import: 9xxV7DVn-j/component
-import Button from "../../Button"; // plasmic-import: Hei_5iCMTfR/component
+import TaskListItem from "../../TaskListItem"; // plasmic-import: 6ge1vqgUce/component
 import "@plasmicapp/react-web/lib/plasmic.css";
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_todo_app_practice.module.css"; // plasmic-import: 5BwtKaPW69DtLKD2yetQK2/projectcss
@@ -123,31 +123,24 @@ function PlasmicTodoList__RenderFunc(props) {
         </div>
       ) : null}
       {true ? (
-        <div
-          data-plasmic-name={"taskContainer"}
-          data-plasmic-override={overrides.taskContainer}
-          className={classNames(projectcss.all, sty.taskContainer)}
+        <p.Stack
+          as={"div"}
+          data-plasmic-name={"taskList"}
+          data-plasmic-override={overrides.taskList}
+          hasGap={true}
+          className={classNames(projectcss.all, sty.taskList)}
         >
-          <div
-            data-plasmic-name={"text"}
-            data-plasmic-override={overrides.text}
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text
-            )}
-          >
-            {"Item No.1"}
-          </div>
-          <Button
-            data-plasmic-name={"deleteButton"}
-            data-plasmic-override={overrides.deleteButton}
-            className={classNames("__wab_instance", sty.deleteButton)}
-            color={"red"}
-          >
-            {"Delete"}
-          </Button>
-        </div>
+          {true ? (
+            <TaskListItem
+              className={classNames("__wab_instance", sty.taskListItem__rYChL)}
+            />
+          ) : null}
+          {true ? (
+            <TaskListItem
+              className={classNames("__wab_instance", sty.taskListItem__bPi6N)}
+            />
+          ) : null}
+        </p.Stack>
       ) : null}
     </div>
   ) : null;
@@ -160,18 +153,14 @@ const PlasmicDescendants = {
     "textInput",
     "freeBox",
     "addButton",
-    "taskContainer",
-    "text",
-    "deleteButton"
+    "taskList"
   ],
 
   formContainer: ["formContainer", "textInput", "freeBox", "addButton"],
   textInput: ["textInput"],
   freeBox: ["freeBox", "addButton"],
   addButton: ["addButton"],
-  taskContainer: ["taskContainer", "text", "deleteButton"],
-  text: ["text"],
-  deleteButton: ["deleteButton"]
+  taskList: ["taskList"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -210,9 +199,7 @@ export const PlasmicTodoList = Object.assign(
     textInput: makeNodeComponent("textInput"),
     freeBox: makeNodeComponent("freeBox"),
     addButton: makeNodeComponent("addButton"),
-    taskContainer: makeNodeComponent("taskContainer"),
-    text: makeNodeComponent("text"),
-    deleteButton: makeNodeComponent("deleteButton"),
+    taskList: makeNodeComponent("taskList"),
     // Metadata about props expected for PlasmicTodoList
     internalVariantProps: PlasmicTodoList__VariantProps,
     internalArgProps: PlasmicTodoList__ArgProps

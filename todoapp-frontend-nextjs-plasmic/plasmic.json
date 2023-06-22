@@ -231,8 +231,7 @@
           "displayName": "plasmic-antd5-date-picker",
           "componentImportPath": "@plasmicpkgs/antd5/skinny/registerDatePicker"
         }
-      ],
-      "jsBundleThemes": []
+      ]
     },
     {
       "projectId": "5BwtKaPW69DtLKD2yetQK2",
@@ -305,6 +304,19 @@
             "modulePath": "TodoList.jsx"
           },
           "cssFilePath": "plasmic/todo_app_practice/PlasmicTodoList.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "6ge1vqgUce",
+          "name": "TaskListItem",
+          "type": "managed",
+          "projectId": "5BwtKaPW69DtLKD2yetQK2",
+          "renderModuleFilePath": "plasmic/todo_app_practice/PlasmicTaskListItem.jsx",
+          "importSpec": {
+            "modulePath": "TaskListItem.jsx"
+          },
+          "cssFilePath": "plasmic/todo_app_practice/PlasmicTaskListItem.module.css",
           "scheme": "blackbox",
           "componentType": "component"
         }
