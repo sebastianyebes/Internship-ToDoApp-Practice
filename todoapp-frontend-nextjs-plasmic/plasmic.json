@@ -7,7 +7,7 @@
   },
   "style": {
     "scheme": "css-modules",
-    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.css"
+    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.module.css"
   },
   "images": {
     "scheme": "public-files",
@@ -231,7 +231,8 @@
           "displayName": "plasmic-antd5-date-picker",
           "componentImportPath": "@plasmicpkgs/antd5/skinny/registerDatePicker"
         }
-      ]
+      ],
+      "jsBundleThemes": []
     },
     {
       "projectId": "5BwtKaPW69DtLKD2yetQK2",
@@ -291,6 +292,19 @@
             "modulePath": "Button2.jsx"
           },
           "cssFilePath": "plasmic/todo_app_practice/PlasmicButton2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "ttogx4DE1_",
+          "name": "TodoList",
+          "type": "managed",
+          "projectId": "5BwtKaPW69DtLKD2yetQK2",
+          "renderModuleFilePath": "plasmic/todo_app_practice/PlasmicTodoList.jsx",
+          "importSpec": {
+            "modulePath": "TodoList.jsx"
+          },
+          "cssFilePath": "plasmic/todo_app_practice/PlasmicTodoList.module.css",
           "scheme": "blackbox",
           "componentType": "component"
         }

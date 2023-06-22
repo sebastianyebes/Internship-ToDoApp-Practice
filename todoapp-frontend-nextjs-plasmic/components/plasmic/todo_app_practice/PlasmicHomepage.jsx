@@ -19,9 +19,7 @@ import {
   createPlasmicElementProxy,
   deriveRenderOpts
 } from "@plasmicapp/react-web";
-import TextInput from "../../TextInput"; // plasmic-import: kXiqqwWiZ1v/component
-import Button2 from "../../Button2"; // plasmic-import: 9xxV7DVn-j/component
-import Button from "../../Button"; // plasmic-import: Hei_5iCMTfR/component
+import TodoList from "../../TodoList"; // plasmic-import: ttogx4DE1_/component
 import "@plasmicapp/react-web/lib/plasmic.css";
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_todo_app_practice.module.css"; // plasmic-import: 5BwtKaPW69DtLKD2yetQK2/projectcss
@@ -60,19 +58,6 @@ function PlasmicHomepage__RenderFunc(props) {
   const $refs = refsRef.current;
   const currentUser = p.useCurrentUser?.() || {};
   const [$queries, setDollarQueries] = React.useState({});
-  const stateSpecs = React.useMemo(
-    () => [
-      {
-        path: "textInput.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
-      }
-    ],
-
-    [$props, $ctx]
-  );
-  const $state = p.useDollarState(stateSpecs, { $props, $ctx, $queries });
   const new$Queries = {
     query: usePlasmicDataOp(
       (() => {
@@ -128,70 +113,29 @@ function PlasmicHomepage__RenderFunc(props) {
           )}
         >
           {true ? (
-            <div className={classNames(projectcss.all, sty.freeBox__h7Hvo)}>
+            <div
+              data-plasmic-name={"todoContainer"}
+              data-plasmic-override={overrides.todoContainer}
+              className={classNames(projectcss.all, sty.todoContainer)}
+            >
+              <h1
+                data-plasmic-name={"h1"}
+                data-plasmic-override={overrides.h1}
+                className={classNames(
+                  projectcss.all,
+                  projectcss.h1,
+                  projectcss.__wab_text,
+                  sty.h1
+                )}
+              >
+                {"TODO LIST"}
+              </h1>
               {true ? (
-                <div
-                  data-plasmic-name={"formContainer"}
-                  data-plasmic-override={overrides.formContainer}
-                  className={classNames(projectcss.all, sty.formContainer)}
-                >
-                  <TextInput
-                    data-plasmic-name={"textInput"}
-                    data-plasmic-override={overrides.textInput}
-                    className={classNames("__wab_instance", sty.textInput)}
-                    onChange={(...eventArgs) => {
-                      p.generateStateOnChangeProp($state, [
-                        "textInput",
-                        "value"
-                      ])((e => e.target?.value).apply(null, eventArgs));
-                    }}
-                    placeholder={"Add a new todo"}
-                    type={"text"}
-                    value={
-                      p.generateStateValueProp($state, [
-                        "textInput",
-                        "value"
-                      ]) ?? ""
-                    }
-                  />
-
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox___7VGQl)}
-                  >
-                    <Button2
-                      data-plasmic-name={"button2"}
-                      data-plasmic-override={overrides.button2}
-                      className={classNames("__wab_instance", sty.button2)}
-                    />
-                  </div>
-                </div>
-              ) : null}
-              {true ? (
-                <div
-                  data-plasmic-name={"taskContainer"}
-                  data-plasmic-override={overrides.taskContainer}
-                  className={classNames(projectcss.all, sty.taskContainer)}
-                >
-                  <div
-                    data-plasmic-name={"text"}
-                    data-plasmic-override={overrides.text}
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text
-                    )}
-                  >
-                    {"Item No.1"}
-                  </div>
-                  <Button
-                    data-plasmic-name={"button"}
-                    data-plasmic-override={overrides.button}
-                    className={classNames("__wab_instance", sty.button)}
-                    color={"red"}
-                  >
-                    {"Delete"}
-                  </Button>
-                </div>
+                <TodoList
+                  data-plasmic-name={"todoList"}
+                  data-plasmic-override={overrides.todoList}
+                  className={classNames("__wab_instance", sty.todoList)}
+                />
               ) : null}
             </div>
           ) : null}
@@ -202,22 +146,10 @@ function PlasmicHomepage__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: [
-    "root",
-    "formContainer",
-    "textInput",
-    "button2",
-    "taskContainer",
-    "text",
-    "button"
-  ],
-
-  formContainer: ["formContainer", "textInput", "button2"],
-  textInput: ["textInput"],
-  button2: ["button2"],
-  taskContainer: ["taskContainer", "text", "button"],
-  text: ["text"],
-  button: ["button"]
+  root: ["root", "todoContainer", "h1", "todoList"],
+  todoContainer: ["todoContainer", "h1", "todoList"],
+  h1: ["h1"],
+  todoList: ["todoList"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -252,12 +184,9 @@ export const PlasmicHomepage = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    formContainer: makeNodeComponent("formContainer"),
-    textInput: makeNodeComponent("textInput"),
-    button2: makeNodeComponent("button2"),
-    taskContainer: makeNodeComponent("taskContainer"),
-    text: makeNodeComponent("text"),
-    button: makeNodeComponent("button"),
+    todoContainer: makeNodeComponent("todoContainer"),
+    h1: makeNodeComponent("h1"),
+    todoList: makeNodeComponent("todoList"),
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
     internalArgProps: PlasmicHomepage__ArgProps,

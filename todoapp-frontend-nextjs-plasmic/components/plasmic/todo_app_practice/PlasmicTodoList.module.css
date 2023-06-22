@@ -1,0 +1,105 @@
+.todoList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  position: relative;
+  background: #000000;
+  min-width: 0;
+  padding: 8px;
+}
+.formContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 431px;
+  height: auto;
+  max-width: 100%;
+  padding: 8px 0px 8px 8px;
+}
+.textInput:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  width: 385px;
+  height: 31px;
+  flex-shrink: 0;
+}
+.svg__yizd {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.svg__ux29M {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.freeBox {
+  display: flex;
+  position: relative;
+  margin-left: 20px;
+}
+.addButton:global(.__wab_instance):global(.__wab_instance) {
+  margin-left: 0;
+}
+.taskContainer {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 472px;
+  height: auto;
+  max-width: 100%;
+  margin-top: 47px;
+  margin-left: 8px;
+  margin-right: 0px;
+  justify-self: flex-start;
+  flex-grow: 0;
+  flex-shrink: 1;
+  overflow: hidden;
+  border-radius: 5px;
+  padding: 8px 0px;
+  border: 2px solid #ffffff;
+}
+.text {
+  width: 351px;
+  height: auto;
+  max-width: 100%;
+  text-align: left;
+  color: #fdfdfd;
+  padding-left: 0px;
+  margin-left: 15px;
+  margin-right: 0px;
+  flex-shrink: 0;
+}
+.deleteButton:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  height: 23px;
+  width: 87px;
+  transition-property: all;
+  transition-duration: 1s;
+  margin-left: 0px;
+  flex-shrink: 0;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 1s;
+}
+.svg__bnusU {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.svg__pPVz3 {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
