@@ -12,6 +12,7 @@
     "@plasmicapp/cli": "^0.1.293",
     "@plasmicapp/react-web": "^0.2.233",
     "@plasmicpkgs/antd5": "^0.0.83",
+    "@plasmicpkgs/plasmic-cms": "^0.0.199",
     "@reduxjs/toolkit": "^1.9.5",
     "eslint": "8.43.0",
     "eslint-config-next": "13.4.7",

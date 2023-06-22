@@ -20,6 +20,7 @@ import {
   deriveRenderOpts
 } from "@plasmicapp/react-web";
 import TodoList from "../../TodoList"; // plasmic-import: ttogx4DE1_/component
+import Button from "../../Button"; // plasmic-import: Hei_5iCMTfR/component
 import "@plasmicapp/react-web/lib/plasmic.css";
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_todo_app_practice.module.css"; // plasmic-import: 5BwtKaPW69DtLKD2yetQK2/projectcss
@@ -137,6 +138,17 @@ function PlasmicHomepage__RenderFunc(props) {
                   className={classNames("__wab_instance", sty.todoList)}
                 />
               ) : null}
+              <Button
+                data-plasmic-name={"aboutPage"}
+                data-plasmic-override={overrides.aboutPage}
+                className={classNames("__wab_instance", sty.aboutPage)}
+                color={"yellow"}
+                link={`/about`}
+                showEndIcon={true}
+                size={"compact"}
+              >
+                {"About Us"}
+              </Button>
             </div>
           ) : null}
         </div>
@@ -146,10 +158,11 @@ function PlasmicHomepage__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "todoContainer", "h1", "todoList"],
-  todoContainer: ["todoContainer", "h1", "todoList"],
+  root: ["root", "todoContainer", "h1", "todoList", "aboutPage"],
+  todoContainer: ["todoContainer", "h1", "todoList", "aboutPage"],
   h1: ["h1"],
-  todoList: ["todoList"]
+  todoList: ["todoList"],
+  aboutPage: ["aboutPage"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -187,6 +200,7 @@ export const PlasmicHomepage = Object.assign(
     todoContainer: makeNodeComponent("todoContainer"),
     h1: makeNodeComponent("h1"),
     todoList: makeNodeComponent("todoList"),
+    aboutPage: makeNodeComponent("aboutPage"),
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
     internalArgProps: PlasmicHomepage__ArgProps,

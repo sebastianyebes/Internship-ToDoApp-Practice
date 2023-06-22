@@ -77,11 +77,14 @@ function PlasmicTaskListItem__RenderFunc(props) {
         data-plasmic-override={overrides.taskText}
         className={classNames(projectcss.all, sty.taskText)}
       >
-        {p.renderPlasmicSlot({
-          defaultContents: "Item No.1",
-          value: args.task,
-          className: classNames(sty.slotTargetTask)
-        })}
+        {true
+          ? p.renderPlasmicSlot({
+              defaultContents:
+                "HEREHEREHEREHEREHEREHEREHEREHEREHEREHEREEHHEHEHEHHE",
+              value: args.task,
+              className: classNames(sty.slotTargetTask)
+            })
+          : null}
       </div>
       <Button
         data-plasmic-name={"deleteButton"}
@@ -89,16 +92,27 @@ function PlasmicTaskListItem__RenderFunc(props) {
         className={classNames("__wab_instance", sty.deleteButton)}
         color={"red"}
       >
-        {"Delete"}
+        <div
+          data-plasmic-name={"text"}
+          data-plasmic-override={overrides.text}
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text
+          )}
+        >
+          {"Delete"}
+        </div>
       </Button>
     </div>
   ) : null;
 }
 
 const PlasmicDescendants = {
-  taskListItem: ["taskListItem", "taskText", "deleteButton"],
+  taskListItem: ["taskListItem", "taskText", "deleteButton", "text"],
   taskText: ["taskText"],
-  deleteButton: ["deleteButton"]
+  deleteButton: ["deleteButton", "text"],
+  text: ["text"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -135,6 +149,7 @@ export const PlasmicTaskListItem = Object.assign(
     // Helper components rendering sub-elements
     taskText: makeNodeComponent("taskText"),
     deleteButton: makeNodeComponent("deleteButton"),
+    text: makeNodeComponent("text"),
     // Metadata about props expected for PlasmicTaskListItem
     internalVariantProps: PlasmicTaskListItem__VariantProps,
     internalArgProps: PlasmicTaskListItem__ArgProps

@@ -1,21 +1,38 @@
 import { PlasmicTodoList } from "./plasmic/todo_app_practice/PlasmicTodoList";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchTasks } from "../pages/redux/features/task-slice";
-import { useEffect, useState, forwardRef } from "react";
+import {
+  fetchTasks,
+  AddTask,
+  removeTask,
+} from "../pages/redux/features/task-slice";
+import { setInput } from "@/pages/redux/features/input-slice";
+import { useEffect, forwardRef } from "react";
 import TaskListItem from "./TaskListItem";
 
 function TodoList_(props, ref) {
   const distpatch = useDispatch();
-  const [input, setInput] = useState("");
+  const input = useSelector((state) => state.input);
   const todos = useSelector((state) => state.tasks);
 
   useEffect(() => {
     distpatch(fetchTasks());
   }, []);
 
-  const inputTextHandler = (e) => {
-    setInput(e.target.value);
+  const textInputHandler = (e) => {
+    distpatch(setInput(e.target.value));
     console.log(input);
+  };
+
+  const addTaskHandler = async (data) => {
+    await distpatch(AddTask(data));
+    distpatch(setInput(""));
+    console.log(data);
+  };
+
+  const removeTaskHandler = (id) => {
+    distpatch(removeTask(id)).then(() => {
+      distpatch(fetchTasks());
+    });
   };
 
   return (
@@ -24,12 +41,24 @@ function TodoList_(props, ref) {
       {...props}
       taskList={{
         wrapChildren: (children) =>
-          todos?.tasks.map((task) => (
-            <TaskListItem key={task.id} task={task.todo} />
-          )),
+          todos.tasks.length > 0 ? (
+            todos?.tasks?.map((task) => (
+              <TaskListItem
+                key={task.id}
+                task={task.todo}
+                deleteButton={{ onClick: () => removeTaskHandler(task.id) }}
+              />
+            ))
+          ) : (
+            <div></div>
+          ),
+      }}
+      addButton={{
+        onClick: () => addTaskHandler({ todo: input }),
       }}
       textInput={{
-        onChange: inputTextHandler,
+        value: input,
+        onChange: textInputHandler,
       }}
     />
   );

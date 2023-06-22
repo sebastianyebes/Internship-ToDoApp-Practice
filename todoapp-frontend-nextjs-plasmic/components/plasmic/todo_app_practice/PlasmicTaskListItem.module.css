@@ -9,15 +9,18 @@
   justify-self: flex-start;
   flex-grow: 0;
   flex-shrink: 1;
-  overflow: hidden;
+  overflow: visible;
   position: relative;
   background: #000000;
+  flex-wrap: wrap;
+  align-content: center;
+  flex-basis: auto;
   border-radius: 5px;
   padding: 8px 0px;
   border: 2px solid #ffffff;
 }
 .taskText {
-  width: 351px;
+  width: 342px;
   height: auto;
   max-width: 100%;
   padding-left: 0px;
@@ -25,11 +28,26 @@
   margin-right: 0px;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  overflow: hidden;
+  margin-bottom: 0px;
+  position: relative;
+  left: auto;
+  top: auto;
+  flex-grow: 0;
+  align-self: flex-start;
+  align-content: center;
+  transform: none;
   flex-shrink: 0;
 }
 .slotTargetTask {
   color: #fdfdfd;
   text-align: left;
+  white-space: pre;
+  user-select: text;
+  text-transform: none;
 }
 .deleteButton:global(.__wab_instance) {
   max-width: 100%;
@@ -38,7 +56,13 @@
   width: 87px;
   transition-property: all;
   transition-duration: 1s;
-  margin-left: 0px;
+  margin-left: 13px;
+  flex-grow: 0;
+  margin-right: 0px;
+  left: auto;
+  top: auto;
+  z-index: 0;
+  align-self: auto;
   flex-shrink: 0;
   -webkit-transition-property: all;
   -webkit-transition-duration: 1s;
@@ -48,6 +72,9 @@
   object-fit: cover;
   width: 1em;
   height: 1em;
+}
+.text {
+  white-space: pre-wrap;
 }
 .svg__uA0Hs {
   position: relative;
