@@ -13,6 +13,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import * as p from "@plasmicapp/react-web";
 import * as ph from "@plasmicapp/react-web/lib/host";
+import { usePlasmicDataOp } from "@plasmicapp/react-web/lib/data-sources";
 import {
   classNames,
   createPlasmicElementProxy,
@@ -20,6 +21,7 @@ import {
 } from "@plasmicapp/react-web";
 import { CmsQueryRepeater } from "@plasmicpkgs/plasmic-cms"; // plasmic-import: 8N9-WfZSaq/codeComponent
 import { CmsRowField } from "@plasmicpkgs/plasmic-cms"; // plasmic-import: w6HdOz-Pcn/codeComponent
+import TextInput from "../../TextInput"; // plasmic-import: kXiqqwWiZ1v/component
 import Button from "../../Button"; // plasmic-import: Hei_5iCMTfR/component
 import "@plasmicapp/react-web/lib/plasmic.css";
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -59,6 +61,47 @@ function PlasmicAbout__RenderFunc(props) {
   const $refs = refsRef.current;
   const currentUser = p.useCurrentUser?.() || {};
   const [$queries, setDollarQueries] = React.useState({});
+  const stateSpecs = React.useMemo(
+    () => [
+      {
+        path: "textInput.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      }
+    ],
+
+    [$props, $ctx]
+  );
+  const $state = p.useDollarState(stateSpecs, { $props, $ctx, $queries });
+  const new$Queries = {
+    query: usePlasmicDataOp(
+      (() => {
+        try {
+          return {
+            sourceId: "5ZkLDBaAH7hdY9hQB2d5P3",
+            opId: "507d4c57-99b0-4628-abaf-bd9089f35702",
+            userArgs: {},
+            cacheKey: "plasmic.$.8pVhI_COZ.$.",
+            invalidatedKeys: null,
+            roleId: null
+          };
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return undefined;
+          } else {
+            throw e;
+          }
+        }
+      })()
+    )
+  };
+  if (Object.keys(new$Queries).some(k => new$Queries[k] !== $queries[k])) {
+    setDollarQueries(new$Queries);
+  }
   return (
     <React.Fragment>
       <Head></Head>
@@ -145,24 +188,170 @@ function PlasmicAbout__RenderFunc(props) {
             }
             noAutoRepeat={false}
             noLayout={false}
+            table={"aboutUs"}
             useDraft={false}
           >
             <ph.DataCtxReader>
               {$ctx => (
-                <div
-                  data-plasmic-name={"freeBox"}
-                  data-plasmic-override={overrides.freeBox}
-                  className={classNames(projectcss.all, sty.freeBox)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__eUq27)}>
                   <CmsRowField
                     data-plasmic-name={"cmsEntryField"}
                     data-plasmic-override={overrides.cmsEntryField}
                     className={classNames("__wab_instance", sty.cmsEntryField)}
+                    field={"about"}
                   />
                 </div>
               )}
             </ph.DataCtxReader>
           </CmsQueryRepeater>
+          {true ? (
+            <div className={classNames(projectcss.all, sty.freeBox__sPkLp)}>
+              <TextInput
+                data-plasmic-name={"textInput"}
+                data-plasmic-override={overrides.textInput}
+                className={classNames("__wab_instance", sty.textInput)}
+                onChange={async (...eventArgs) => {
+                  ((...eventArgs) => {
+                    p.generateStateOnChangeProp($state, ["textInput", "value"])(
+                      (e => e.target?.value).apply(null, eventArgs)
+                    );
+                  }).apply(null, eventArgs);
+                  (async event => {
+                    const $steps = {};
+                    $steps["updateTextInputValue"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: __wrapUserFunction(
+                              {
+                                type: "InteractionArgLoc",
+                                actionName: "updateVariable",
+                                interactionUuid: "xJzw-egCp",
+                                componentUuid: "kUJxIvpnpi",
+                                argName: "variable"
+                              },
+                              () => ({
+                                objRoot: $state,
+                                variablePath: ["textInput", "value"]
+                              })
+                            ),
+                            operation: __wrapUserFunction(
+                              {
+                                type: "InteractionArgLoc",
+                                actionName: "updateVariable",
+                                interactionUuid: "xJzw-egCp",
+                                componentUuid: "kUJxIvpnpi",
+                                argName: "operation"
+                              },
+                              () => 0
+                            )
+                          };
+                          return __wrapUserFunction(
+                            {
+                              type: "InteractionLoc",
+                              actionName: "updateVariable",
+                              interactionUuid: "xJzw-egCp",
+                              componentUuid: "kUJxIvpnpi"
+                            },
+                            () =>
+                              (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+                                p.set(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]),
+                            actionArgs
+                          );
+                        })()
+                      : undefined;
+                    if (
+                      typeof $steps["updateTextInputValue"] === "object" &&
+                      typeof $steps["updateTextInputValue"].then === "function"
+                    ) {
+                      $steps["updateTextInputValue"] = await __wrapUserPromise(
+                        {
+                          type: "InteractionLoc",
+                          actionName: "updateVariable",
+                          interactionUuid: "xJzw-egCp",
+                          componentUuid: "kUJxIvpnpi"
+                        },
+                        $steps["updateTextInputValue"]
+                      );
+                    }
+                  }).apply(null, eventArgs);
+                }}
+                value={
+                  p.generateStateValueProp($state, ["textInput", "value"]) ?? ""
+                }
+              />
+
+              <Button
+                data-plasmic-name={"button"}
+                data-plasmic-override={overrides.button}
+                className={classNames("__wab_instance", sty.button)}
+                color={"blue"}
+                onClick={async event => {
+                  const $steps = {};
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: __wrapUserFunction(
+                            {
+                              type: "InteractionArgLoc",
+                              actionName: "customFunction",
+                              interactionUuid: "XAxurmS2H",
+                              componentUuid: "kUJxIvpnpi",
+                              argName: "customFunction"
+                            },
+                            () => () => {
+                              return $queries.query.data.response.rows.push(
+                                $state.textInput.value
+                              );
+                            }
+                          )
+                        };
+                        return __wrapUserFunction(
+                          {
+                            type: "InteractionLoc",
+                            actionName: "customFunction",
+                            interactionUuid: "XAxurmS2H",
+                            componentUuid: "kUJxIvpnpi"
+                          },
+                          () =>
+                            (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]),
+                          actionArgs
+                        );
+                      })()
+                    : undefined;
+                  if (
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await __wrapUserPromise(
+                      {
+                        type: "InteractionLoc",
+                        actionName: "customFunction",
+                        interactionUuid: "XAxurmS2H",
+                        componentUuid: "kUJxIvpnpi"
+                      },
+                      $steps["runCode"]
+                    );
+                  }
+                }}
+                submitsForm={false}
+              >
+                {"Add"}
+              </Button>
+            </div>
+          ) : null}
           <Button
             data-plasmic-name={"homeButton"}
             data-plasmic-override={overrides.homeButton}
@@ -186,16 +375,18 @@ const PlasmicDescendants = {
     "aboutContainer",
     "h1",
     "cmsDataFetcher",
-    "freeBox",
     "cmsEntryField",
+    "textInput",
+    "button",
     "homeButton"
   ],
 
   aboutContainer: ["aboutContainer", "h1"],
   h1: ["h1"],
-  cmsDataFetcher: ["cmsDataFetcher", "freeBox", "cmsEntryField"],
-  freeBox: ["freeBox", "cmsEntryField"],
+  cmsDataFetcher: ["cmsDataFetcher", "cmsEntryField"],
   cmsEntryField: ["cmsEntryField"],
+  textInput: ["textInput"],
+  button: ["button"],
   homeButton: ["homeButton"]
 };
 
@@ -234,8 +425,9 @@ export const PlasmicAbout = Object.assign(
     aboutContainer: makeNodeComponent("aboutContainer"),
     h1: makeNodeComponent("h1"),
     cmsDataFetcher: makeNodeComponent("cmsDataFetcher"),
-    freeBox: makeNodeComponent("freeBox"),
     cmsEntryField: makeNodeComponent("cmsEntryField"),
+    textInput: makeNodeComponent("textInput"),
+    button: makeNodeComponent("button"),
     homeButton: makeNodeComponent("homeButton"),
     // Metadata about props expected for PlasmicAbout
     internalVariantProps: PlasmicAbout__VariantProps,

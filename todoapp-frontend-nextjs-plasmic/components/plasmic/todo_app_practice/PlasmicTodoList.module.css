@@ -28,6 +28,12 @@
   height: 31px;
   flex-shrink: 0;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .textInput:global(.__wab_instance) {
+    width: 268px;
+    flex-shrink: 0;
+  }
+}
 .svg__yizd {
   position: relative;
   object-fit: cover;
@@ -79,4 +85,19 @@
   > picture
   > img {
   margin-top: var(--token-UEz8jpx4ZeEk);
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .text__y5Qyz {
+    white-space: pre-wrap;
+    max-width: 300px;
+    width: 100%;
+    min-width: 0;
+  }
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .text__tdfTl {
+    max-width: 311px;
+    width: 100%;
+    min-width: 0;
+  }
 }

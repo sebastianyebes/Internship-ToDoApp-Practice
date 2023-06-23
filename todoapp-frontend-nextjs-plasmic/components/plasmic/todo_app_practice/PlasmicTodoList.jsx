@@ -134,13 +134,34 @@ function PlasmicTodoList__RenderFunc(props) {
             <TaskListItem
               className={classNames("__wab_instance", sty.taskListItem__rYChL)}
               task={
-                "Item No.1 Item No.1 Item No.1 Item No.1 Item No.1 Item No.1"
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__y5Qyz
+                  )}
+                >
+                  {
+                    "Item No.1 Item No.1 Item No.1 Item No.1 Item No.1 Item No.1"
+                  }
+                </div>
               }
             />
           ) : null}
           {true ? (
             <TaskListItem
               className={classNames("__wab_instance", sty.taskListItem__bPi6N)}
+              task={
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__tdfTl
+                  )}
+                >
+                  {"HEREHEREHEREHEREHEREHEREHEREHEREHEREHEREEHHEHEHEHHE"}
+                </div>
+              }
             />
           ) : null}
         </p.Stack>
