@@ -5,7 +5,7 @@ import {
   createTask,
   updateTask,
   deleteTask,
-} from "../../api/task";
+} from "../../../pages/api/task";
 
 const initialState = {
   tasks: [],

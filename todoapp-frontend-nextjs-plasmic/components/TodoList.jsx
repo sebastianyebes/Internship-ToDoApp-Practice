@@ -4,8 +4,8 @@ import {
   fetchTasks,
   AddTask,
   removeTask,
-} from "../pages/redux/features/task-slice";
-import { setInput } from "@/pages/redux/features/input-slice";
+} from "../lib/redux/features/task-slice";
+import { setInput } from "../lib/redux/features/input-slice";
 import { useEffect, forwardRef } from "react";
 import TaskListItem from "./TaskListItem";
 
