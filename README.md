@@ -36,7 +36,7 @@ example:
   DB_PORT = 5432
 ```
 
-6.) Run
+6. Run
 ``` bash
   python3 manage.py runserver / python manage.py runserver
 ```
@@ -74,7 +74,7 @@ example:
   cd ..
 ```
 
-4. From the root directory, run the following:
+4. From the root directory, run:
 ``` bash
   docker compose up -d --build
 ```
