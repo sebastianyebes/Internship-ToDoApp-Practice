@@ -12,7 +12,7 @@ A user-friendly task management application that helps users organize and priori
 
 2.) Create a virtual environment
 ``` bash
-  python-m venv venv
+  python -m venv venv
 ```
 
 3.) Activate a virtual environment
